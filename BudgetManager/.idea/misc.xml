@@ -6,10 +6,13 @@
         <entry key="..\:/Users/SHUBHAM S JADHAV/OneDrive/Pictures/vikas/Budget Manager/BudgetManager/app/src/main/res/layout/main.xml" value="0.12708333333333333" />
         <entry key="..\:/Users/SHUBHAM S JADHAV/OneDrive/Pictures/vikas/Budget Manager/BudgetManager/app/src/main/res/layout/second_fragment.xml" value="0.264" />
         <entry key="..\:/Users/SHUBHAM S JADHAV/OneDrive/Pictures/vikas/Budget Manager/BudgetManager/app/src/main/res/layout/third_fragment.xml" value="0.1" />
+        <entry key="..\:/Users/ananj/AndroidStudioProjects/Gdsc_expense/expense-tracker/BudgetManager/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/ananj/AndroidStudioProjects/Gdsc_expense/expense-tracker/BudgetManager/app/src/main/res/layout/second_fragment.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/ananj/AndroidStudioProjects/Gdsc_expense/expense-tracker/BudgetManager/app/src/main/res/layout/third_fragment.xml" value="0.25416666666666665" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
