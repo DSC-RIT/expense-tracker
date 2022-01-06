@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:layout_marginLeft="30dp"
+    android:layout_marginRight="30dp"
+    android:layout_marginBottom="30dp"
+    >
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/text_amount_spent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/enter_amount_spent"
+        android:inputType="numberSigned"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="20dp">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/text_amount_spent_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberSigned"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/text_select_category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="@string/category"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintHorizontal_bias="0.024"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_amount_spent"
+        />
+
+
+
+
+
+        <RadioGroup
+            android:id="@+id/rd_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/text_select_category"
+            android:layout_marginLeft="8dp"
+            >
+
+            <RadioButton
+                android:id="@+id/rd_food"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/food"
+                android:textSize="18sp"/>
+
+            <RadioButton
+                android:id="@+id/rd_grocery"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/grocery"
+                android:textSize="18sp"/>
+
+            <RadioButton
+                android:id="@+id/rd_stationary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Stationary"
+                android:textSize="18sp"/>
+
+            <RadioButton
+                android:id="@+id/rd_item"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Item"
+                android:textSize="18sp"/>
+
+            <RadioButton
+                android:id="@+id/rd_travelling"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Travelling"
+                android:textSize="18sp"/>
+
+            <RadioButton
+                android:id="@+id/rd_clothing"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Clothing"
+                android:textSize="18sp"/>
+
+            <RadioButton
+                android:id="@+id/rd_leisure"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Leisure"
+                android:textSize="18sp"/>
+
+            <RadioButton
+                android:id="@+id/rd_others"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Others"
+                android:textSize="18sp"/>
+
+        </RadioGroup>
+
+
+    <EditText
+        android:id="@+id/editTextTextPersonName"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:ems="15"
+        android:inputType="textPersonName"
+        android:hint="Comment"
+        tools:layout_editor_absoluteX="38dp"
+        tools:layout_editor_absoluteY="540dp"
+        app:layout_constraintBottom_toTopOf="@id/done_add"
+        app:layout_constraintTop_toBottomOf="@+id/rd_group"
+        android:gravity="bottom"
+
+        />
+    <Button
+        android:id="@+id/done_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Done"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.894"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="20dp"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

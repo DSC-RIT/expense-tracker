@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="10dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginTop="10dp">
+
+    <TextView
+        android:id="@+id/text_monthly_balance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:text="@string/your_monthly_balance"
+        android:textSize="18sp"
+        android:textAlignment="center"
+
+        />
+    <TextView
+        android:id="@+id/val_total_budget"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/value_total_budget"
+        android:textSize="15sp"
+        android:textAlignment="center"
+        android:layout_below="@id/text_monthly_balance"
+        android:layout_alignParentLeft="true"
+
+        />
+
+    <TextView
+        android:id="@+id/text_total_spent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:text="@string/total_spent"
+        android:textAlignment="center"
+        android:textSize="18sp"
+
+        />
+    <TextView
+        android:id="@+id/val_total_spent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/value_total_spent"
+        android:textSize="15sp"
+        android:textAlignment="center"
+        android:layout_below="@id/text_total_spent"
+        android:layout_alignParentRight="true"
+        />
+
+    <Button
+        android:id="@+id/btn_set_budget"
+        android:layout_width="150dp"
+        android:layout_height="80dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="100dp"
+        android:text="@string/set_your_budget"
+        android:textAlignment="center"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/btn_history"
+        android:layout_width="150dp"
+        android:layout_height="80dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="100dp"
+        android:padding="5dp"
+        android:text="@string/history"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btn_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="20dp"
+        android:clickable="true"
+        android:contentDescription="New Payment"
+        android:focusable="true"
+        app:srcCompat="@drawable/ic_add"
+        tools:ignore="ImageContrastCheck,ImageContrastCheck,SpeakableTextPresentCheck,VectorDrawableCompat"
+        />
+
+
+
+
+
+</RelativeLayout>
+

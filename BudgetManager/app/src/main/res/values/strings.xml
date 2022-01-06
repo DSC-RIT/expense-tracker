@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Budget Manager</string>
+    <string name="monthly_budget">Monthly Budget</string>
+    <string name="total_spent">Total Spent</string>
+    <string name="set_your_budget">Set Your Budget</string>
+    <string name="history">History</string>
+    <string name="food">Food</string>
+    <string name="grocery">Grocery</string>
+    <string name="stationary">Stationary</string>
+    <string name="recharge">Recharge</string>
+    <string name="travelling">Travelling</string>
+    <string name="clothing">Clothing</string>
+    <string name="leisure">Leisure</string>
+    <string name="others">Others</string>
+    <string name="set_limits_for_following">Set limits for following</string>
+
+    <string name="your_monthly_balance">Your Monthly Balance</string>
+
+    <string name="value_total_budget">value total</string>
+    <string name="value_total_spent">value spent</string>
+
+    <string name="amount_spent">Amount Spent</string>
+    <string name="category">Select Category</string>
+    <string name="enter_amount_spent">Enter Amount Spent</string>
+
+
+</resources>

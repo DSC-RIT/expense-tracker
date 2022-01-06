@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/set_title"
+        android:layout_width="242dp"
+        android:layout_height="50dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="false"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="@string/set_your_budget"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/limit_total_budget"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Your Budget"
+        android:inputType="numberSigned"
+        android:layout_below="@id/set_title"
+        android:layout_alignParentStart="false"
+        android:layout_alignParentTop="false"
+        android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/limit_total_budget_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberSigned"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <LinearLayout
+        android:id="@+id/title_categories"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/limit_total_budget"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="false"
+        android:layout_alignParentBottom="false"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="30dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/categ1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:width="150dp"
+            android:height="46dp"
+            android:gravity="center_vertical"
+            android:text="@string/food"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/categ2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:width="150dp"
+            android:height="46dp"
+            android:gravity="center_vertical"
+            android:text="@string/grocery"
+            android:textSize="24sp" />
+
+
+        <TextView
+            android:id="@+id/categ3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:width="150dp"
+            android:height="47dp"
+            android:gravity="center_vertical"
+            android:text="@string/stationary"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/categ4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:width="150dp"
+            android:height="46dp"
+            android:gravity="center_vertical"
+            android:text="@string/recharge"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/categ5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:width="150dp"
+            android:height="46dp"
+            android:gravity="center_vertical"
+            android:text="@string/travelling"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/categ7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:width="150dp"
+            android:height="46dp"
+            android:gravity="center_vertical"
+            android:text="@string/clothing"
+            android:textSize="24sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:width="150dp"
+            android:height="46dp"
+            android:gravity="center_vertical"
+            android:text="@string/leisure"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/categ8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:width="150dp"
+            android:height="46dp"
+            android:gravity="center_vertical"
+            android:text="@string/others"
+            android:textSize="24sp" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/limit_total_budget"
+        android:layout_alignParentTop="false"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="false"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="20dp"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/limit_food"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="8"
+            android:inputType="numberSigned" />
+
+        <EditText
+            android:id="@+id/limit_grocery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="8"
+            android:inputType="numberSigned" />
+
+        <EditText
+            android:id="@+id/limit_stationary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="8"
+            android:inputType="numberSigned" />
+
+        <EditText
+            android:id="@+id/editTextNumberSigned"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="8"
+            android:inputType="numberSigned" />
+
+        <EditText
+            android:id="@+id/limit_travelling"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="8"
+            android:inputType="numberSigned" />
+
+        <EditText
+            android:id="@+id/limit_clothing"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="8"
+            android:inputType="numberSigned" />
+
+        <EditText
+            android:id="@+id/limit_leisure"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="8"
+            android:inputType="numberSigned" />
+
+        <EditText
+            android:id="@+id/limit_others"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="8"
+            android:inputType="numberSigned" />
+
+
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/done_limit_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="false"
+        android:layout_alignParentEnd="false"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="25dp"
+        android:text="Done" />
+
+
+</RelativeLayout>
+
