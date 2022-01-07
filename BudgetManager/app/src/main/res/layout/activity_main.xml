@@ -5,7 +5,10 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        app:defaultNavHost="true"
+       app:navGraph="@navigation/nav_graph" 
+      tools:layout="@layout/first_fragment">
     </androidx.fragment.app.FragmentContainerView>
 
 </RelativeLayout>
