@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/firstfragment">
+
+    <fragment
+        android:id="@+id/firstfragment"
+        android:name="com.example.budgetmanager.Firstfragment"
+        android:label="Firstfragment" >
+        <action
+            android:id="@+id/action_firstfragment_to_secondfragment"
+            app:destination="@id/secondfragment" />
+        <action
+            android:id="@+id/action_firstfragment_to_thirdfragment"
+            app:destination="@id/thirdfragment" />
+        <action
+            android:id="@+id/action_firstfragment_to_fourthfragment"
+            app:destination="@id/fourthfragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/secondfragment"
+        android:name="com.example.budgetmanager.Secondfragment"
+        android:label="Secondfragment" >
+        <action
+            android:id="@+id/action_secondfragment_to_firstfragment"
+            app:destination="@id/firstfragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/thirdfragment"
+        android:name="com.example.budgetmanager.Thirdfragment"
+        android:label="Thirdfragment" >
+        <action
+            android:id="@+id/action_thirdfragment_to_firstfragment"
+            app:destination="@id/firstfragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/fourthfragment"
+        android:name="com.example.budgetmanager.Fourthfragment"
+        android:label="Fourthfragment" >
+        <action
+            android:id="@+id/action_fourthfragment_to_firstfragment"
+            app:destination="@id/firstfragment" />
+    </fragment>
+</navigation>
