@@ -9,7 +9,8 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.budgetmanager.databinding.FirstFragmentBinding
 
-class Firstfragment:Fragment() {
+class
+Firstfragment:Fragment() {
     private lateinit var binding:FirstFragmentBinding
     override fun onCreateView(
         inflater: LayoutInflater,
