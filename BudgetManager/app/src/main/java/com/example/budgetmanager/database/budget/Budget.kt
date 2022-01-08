@@ -12,9 +12,8 @@ data class Budget(
     val rechargeBudget: String,
     val travellingBudget: String,
     val clothingBudget: String,
+    val leisureBudget: String,
     val otherBudget: String,
     @PrimaryKey(autoGenerate = true)
     val id: Int = 0
-) {
-
-}
+)
