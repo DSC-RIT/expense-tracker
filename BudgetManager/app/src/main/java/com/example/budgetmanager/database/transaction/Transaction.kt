@@ -3,7 +3,7 @@ package com.example.budgetmanager.database.transaction
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "transactions")
+@Entity(tableName = "transactionsTable")
 data class Transaction(
     val amount: String,
     val category: String,

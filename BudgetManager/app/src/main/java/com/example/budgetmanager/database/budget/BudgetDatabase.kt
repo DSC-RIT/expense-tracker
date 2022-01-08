@@ -1,9 +1,11 @@
 package com.example.budgetmanager.database.budget
 
 import android.content.Context
+import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
+@Database(entities = [Budget::class], version = 1, exportSchema = false)
 abstract class BudgetDatabase: RoomDatabase() {
 
     abstract fun budgetDao(): BudgetDao
@@ -16,8 +18,10 @@ abstract class BudgetDatabase: RoomDatabase() {
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
                     BudgetDatabase::class.java,
-                    "word_database"
-                ).build()
+                    "expense_tracker_database"
+                )
+                    .fallbackToDestructiveMigration()
+                    .build()
                 INSTANCE = instance
                 // return instance
                 instance

@@ -5,13 +5,15 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.example.budgetmanager.database.transaction.Transaction
 
 @Dao
 interface TransactionDao {
-    @Query("SELECT * FROM transactions")
+    @Query("SELECT * FROM transactionsTable")
     fun getAllTransactions(): LiveData<List<Transaction>>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun insertTransaction(vararg transaction: Transaction)
+    suspend fun insertTransaction(transaction: Transaction)
+
+    @Query("DELETE FROM transactionsTable")
+    suspend fun clear()
 }

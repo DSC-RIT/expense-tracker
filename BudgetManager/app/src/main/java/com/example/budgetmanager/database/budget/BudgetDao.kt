@@ -1,11 +1,12 @@
 package com.example.budgetmanager.database.budget
 
+import androidx.lifecycle.LiveData
 import androidx.room.*
 
 @Dao
 interface BudgetDao {
-    @Query("SELECT * FROM budgets")
-    fun getBudget(): Budget
+    @Query("SELECT * FROM budgetsTable")
+    fun getBudget(): LiveData<Budget>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun addBudget(budget: Budget)

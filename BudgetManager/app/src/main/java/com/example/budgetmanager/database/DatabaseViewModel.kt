@@ -1,6 +1,6 @@
 package com.example.budgetmanager.database
 
-import android.app.Application
+import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.*
 import com.example.budgetmanager.database.budget.Budget
@@ -10,19 +10,25 @@ import com.example.budgetmanager.database.transaction.TransactionDatabase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class DatabaseViewModel(application: Application): AndroidViewModel(application) {
-    public var allNote: LiveData<List<Transaction>>
-    var budget: Budget
-    public var repository: DataBaseRepository
-    init {
-        val transactionDao = TransactionDatabase.getDatabase(application).transactionDao()
-        val budgetDao = BudgetDatabase.getDatabase(application).budgetDao()
+class DatabaseViewModel: ViewModel() {
+    private lateinit var repository: DataBaseRepository
+    lateinit var allTransactions: LiveData<List<Transaction>>
+    lateinit var budget: LiveData<Budget>
+
+    fun initial(context: Context) {
+        val transactionDao = TransactionDatabase.getDatabase(context).transactionDao()
+        val budgetDao = BudgetDatabase.getDatabase(context).budgetDao()
         repository = DataBaseRepository(transactionDao, budgetDao)
-        allNote = repository.allTransactions
-        budget = repository.getBudget
+        allTransactions = repository.allTransactions
+        budget = repository.budget
     }
-    fun addTransaction(vararg transaction: Transaction) = viewModelScope.launch(Dispatchers.IO) {
-        repository.insert(*transaction)
+
+    fun addTransaction(transaction: Transaction) = viewModelScope.launch(Dispatchers.IO) {
+        repository.insert(transaction)
+    }
+
+    fun clear() = viewModelScope.launch(Dispatchers.IO) {
+        repository.clear()
     }
 
     fun addBudget(budget: Budget) = viewModelScope.launch(Dispatchers.IO) {
@@ -36,5 +42,4 @@ class DatabaseViewModel(application: Application): AndroidViewModel(application)
     fun deleteBudget(budget: Budget) = viewModelScope.launch(Dispatchers.IO) {
         repository.deleteBudget(budget)
     }
-
 }
