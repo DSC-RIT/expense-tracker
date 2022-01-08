@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
     app:startDestination="@id/firstfragment">
 
@@ -36,8 +37,8 @@
     </fragment>
     <fragment
         android:id="@+id/fourthfragment"
-        android:name="com.example.budgetmanager.Fourthfragment"
-        android:label="Fourthfragment" >
+        android:name="com.example.budgetmanager.HistoryFragment"
+        android:label="HistoryFragment">
         <action
             android:id="@+id/action_fourthfragment_to_firstfragment"
             app:destination="@id/firstfragment" />
