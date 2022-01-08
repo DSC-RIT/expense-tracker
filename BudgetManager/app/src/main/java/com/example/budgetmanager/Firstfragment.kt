@@ -37,17 +37,17 @@ Firstfragment:Fragment() {
     }
 
     private fun method1() {
-        val act = FirstfragmentDirections.actionFirstfragment2ToSecondfragment2()
+        val act = FirstfragmentDirections.actionFirstfragmentToSecondfragment()
         this.findNavController().navigate(act)
     }
 
     private fun method2() {
-        val act = FirstfragmentDirections.actionFirstfragment2ToThirdfragment2()
+        val act = FirstfragmentDirections.actionFirstfragmentToThirdfragment()
         this.findNavController().navigate(act)
     }
 
     private fun method3(){
-        val act = FirstfragmentDirections.actionFirstfragment2ToFourthfragment2()
+        val act = FirstfragmentDirections.actionFirstfragmentToFourthfragment()
         this.findNavController().navigate(act)
     }
 }

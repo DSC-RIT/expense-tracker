@@ -30,7 +30,7 @@ class Secondfragment:Fragment() {
     }
     private fun method()
     {
-        val act=SecondfragmentDirections.actionSecondfragment2ToFirstfragment2()
+        val act=SecondfragmentDirections.actionSecondfragmentToFirstfragment()
         this.findNavController().navigate(act)
     }
 }

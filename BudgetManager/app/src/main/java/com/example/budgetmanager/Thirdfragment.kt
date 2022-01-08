@@ -29,7 +29,7 @@ class Thirdfragment:Fragment() {
     }
     private fun method()
     {
-        val act=ThirdfragmentDirections.actionThirdfragment2ToFirstfragment2()
+        val act=ThirdfragmentDirections.actionThirdfragmentToFirstfragment()
         this.findNavController().navigate(act)
     }
 }
