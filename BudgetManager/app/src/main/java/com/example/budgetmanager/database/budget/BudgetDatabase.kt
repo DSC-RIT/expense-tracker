@@ -5,7 +5,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = [Budget::class], version = 1, exportSchema = false)
+@Database(entities = [Budget::class], version = 2, exportSchema = false)
 abstract class BudgetDatabase: RoomDatabase() {
 
     abstract fun budgetDao(): BudgetDao

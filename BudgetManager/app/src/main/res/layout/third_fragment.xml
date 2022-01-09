@@ -115,7 +115,7 @@
 
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/TransactionComment"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:ems="15"
