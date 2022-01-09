@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.RadioButton
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
@@ -15,6 +16,9 @@ import androidx.room.Database
 import com.example.budgetmanager.database.DatabaseViewModel
 import com.example.budgetmanager.database.transaction.Transaction
 import com.example.budgetmanager.databinding.ThirdFragmentBinding
+import kotlinx.android.synthetic.main.third_fragment.*
+import java.text.SimpleDateFormat
+import java.util.*
 
 class Thirdfragment : Fragment() {
     // I have initialized the databaseViewModel here
@@ -37,13 +41,40 @@ class Thirdfragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val btn = binding.doneAdd
+        var rb : RadioButton? = null
+
+        rd_group.setOnCheckedChangeListener { rd_group, i ->
+            rb = getView()?.findViewById<RadioButton>(i)
+        }
         btn.setOnClickListener{
 //            The below code is an example for how to insert into the database:
 //
 //            val entry = Transaction("123", "Food", "Test", "08/01/22", "20:55:30")
 //            databaseViewModel.addTransaction(entry)
 
-            method()
+            val amntSpent = text_amount_spent_edit_text.text.toString()
+
+            if (amntSpent.isEmpty()){
+                Toast.makeText(activity, "Please Enter the Amount", Toast.LENGTH_SHORT).show()
+            }
+
+            if (rb == null){
+                Toast.makeText(activity, "Please Select the Catagory", Toast.LENGTH_SHORT).show()
+            }
+
+            else{
+                val selectedCategory = rb!!.text
+                val comment = TransactionComment.text.toString()
+
+                val sdf = SimpleDateFormat("dd/M/yyyy hh:mm:ss")
+                val dateTimeArray = sdf.format(Date()).toString().split(" ")
+
+                val newTransaction = Transaction(amntSpent, selectedCategory as String, comment, dateTimeArray[0], dateTimeArray[1])
+                databaseViewModel.addTransaction(newTransaction)
+
+                method()
+            }
+
         }
     }
 
