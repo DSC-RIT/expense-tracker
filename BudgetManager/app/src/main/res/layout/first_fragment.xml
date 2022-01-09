@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginBottom="10dp"
@@ -49,6 +49,23 @@
         android:textAlignment="center"
         android:layout_below="@id/text_total_spent"
         android:layout_alignParentRight="true" />
+
+    <com.github.mikephil.charting.charts.PieChart
+        android:id="@+id/pieChart"
+        android:layout_width="wrap_content"
+        android:layout_height="800dp"
+        android:layout_above="@+id/btn_set_budget"
+        android:layout_below="@+id/val_total_spent"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="30dp"
+        android:layout_toStartOf="@+id/val_total_spent"
+        android:layout_toEndOf="@+id/val_total_budget"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="@id/val_total_budget"
+        app:layout_constraintRight_toRightOf="@id/val_total_spent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btn_set_budget"
