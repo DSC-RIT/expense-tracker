@@ -22,6 +22,7 @@ import com.github.mikephil.charting.data.PieEntry
 import com.github.mikephil.charting.formatter.PercentFormatter
 import com.github.mikephil.charting.highlight.Highlight
 import com.github.mikephil.charting.listener.OnChartValueSelectedListener
+import kotlinx.android.synthetic.main.first_fragment.*
 
 class
 Firstfragment:Fragment() {
@@ -90,6 +91,8 @@ Firstfragment:Fragment() {
         })
 
     }
+
+
 
     private fun loadPieChartData(){
         pieChart.setUsePercentValues(true)
