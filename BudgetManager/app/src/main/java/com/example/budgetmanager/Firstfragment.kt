@@ -61,7 +61,7 @@ Firstfragment:Fragment() {
 
         pieChart.apply {
             setUsePercentValues(true)
-            description.text = "Sample Description"
+            description.text = ""
             description.textSize = 24f
             //hollow pie chart
             isDrawHoleEnabled = true
@@ -87,7 +87,6 @@ Firstfragment:Fragment() {
             override fun onNothingSelected() {
                 pieChart.setDrawEntryLabels(false)
             }
-
         })
 
     }
@@ -96,27 +95,50 @@ Firstfragment:Fragment() {
         pieChart.setUsePercentValues(true)
 
         /*Hard Coded sample data for testing*/
-        var foodSum = 500
-        var grocerySum = 100
-        var stationarySum = 220
-        var rechargeSum = 300
-        var travelSum = 200
-        var clothingSum = 150
-        var leisureSum = 300
-        var otherSum = 50
-        var totalSum = 0
+        var foodSum = 0.0
+        var grocerySum = 0.0
+        var stationarySum = 0.0
+        var rechargeSum = 0.0
+        var travelSum = 0.0
+        var clothingSum = 0.0
+        var leisureSum = 0.0
+        var otherSum = 0.0
+        var totalSum = 0.0
+
+        var allotedFoodBudget = 0
+        var allotedGroceryBudget = 0
+        var allotedStationaryBudget = 0
+        var allotedRechargeBudget = 0
+        var allotedTravelBudget = 0
+        var allotedClothingbudget = 0
+        var allotedLeisureBudget = 0
+        var allotedOtherBudget = 0
+
+        databaseViewModel.budget.observe(viewLifecycleOwner){budget ->
+            if (budget != null){
+                allotedFoodBudget  = budget.foodBudget.toInt()
+                allotedGroceryBudget = budget.groceryBudget.toInt()
+                allotedStationaryBudget = budget.stationaryBudget.toInt()
+                allotedRechargeBudget = budget.rechargeBudget.toInt()
+                allotedTravelBudget = budget.travellingBudget.toInt()
+                allotedClothingbudget = budget.clothingBudget.toInt()
+                allotedLeisureBudget = budget.leisureBudget.toInt()
+                allotedOtherBudget = budget.otherBudget.toInt()
+            }
+
+        }
 
         databaseViewModel.allTransactions.observe(viewLifecycleOwner) {
             for (transaction in it) {
                 when (transaction.category) {
-                    "Food" -> foodSum += transaction.amount.toInt();
-                    "Grocery" -> grocerySum += transaction.amount.toInt();
-                    "Stationary" -> stationarySum += transaction.amount.toInt();
-                    "Recharge" -> rechargeSum += transaction.amount.toInt();
-                    "Travelling" -> travelSum += transaction.amount.toInt();
-                    "Clothing" -> clothingSum += transaction.amount.toInt();
-                    "Leisure" -> leisureSum += transaction.amount.toInt();
-                    "Others" -> otherSum += transaction.amount.toInt();
+                    "Food" -> foodSum += transaction.amount.toInt()
+                    "Grocery" -> grocerySum += transaction.amount.toInt()
+                    "Stationary" -> stationarySum += transaction.amount.toInt()
+                    "Recharge" -> rechargeSum += transaction.amount.toInt()
+                    "Travelling" -> travelSum += transaction.amount.toInt()
+                    "Clothing" -> clothingSum += transaction.amount.toInt()
+                    "Leisure" -> leisureSum += transaction.amount.toInt()
+                    "Others" -> otherSum += transaction.amount.toInt()
                 }
             }
             totalSum =
@@ -124,14 +146,30 @@ Firstfragment:Fragment() {
 
 
             val dataEntries = ArrayList<PieEntry>()
-            dataEntries.add(PieEntry((foodSum.toFloat() / totalSum.toFloat()), "$foodSum / $totalSum \nfood"))
-            dataEntries.add(PieEntry((grocerySum.toFloat()/ totalSum.toFloat()), "$grocerySum / $totalSum \ngrocery"))
-            dataEntries.add(PieEntry((stationarySum.toFloat() / totalSum.toFloat()), "$stationarySum / $totalSum \nstationary"))
-            dataEntries.add(PieEntry((rechargeSum.toFloat() / totalSum.toFloat()), "$rechargeSum / $totalSum \nrecharge"))
-            dataEntries.add(PieEntry((travelSum.toFloat() / totalSum.toFloat()), "$travelSum / $totalSum \ntravel"))
-            dataEntries.add(PieEntry((clothingSum.toFloat() / totalSum.toFloat()), "$clothingSum / $totalSum \nclothing"))
-            dataEntries.add(PieEntry((leisureSum.toFloat() / totalSum.toFloat()), "$leisureSum / $totalSum \nleisure"))
-            dataEntries.add(PieEntry((otherSum.toFloat() / totalSum.toFloat()), "$otherSum / $totalSum \nothers"))
+            if(foodSum != 0.0){
+                dataEntries.add(PieEntry((foodSum.toFloat() / totalSum.toFloat()), "$foodSum / $allotedFoodBudget food"))
+            }
+            if(grocerySum != 0.0){
+                dataEntries.add(PieEntry((grocerySum.toFloat()/ totalSum.toFloat()), "$grocerySum / $allotedGroceryBudget grocery"))
+            }
+            if(stationarySum != 0.0){
+                dataEntries.add(PieEntry((stationarySum.toFloat() / totalSum.toFloat()), "$stationarySum / $allotedStationaryBudget stationary"))
+            }
+            if(rechargeSum != 0.0){
+                dataEntries.add(PieEntry((rechargeSum.toFloat() / totalSum.toFloat()), "$rechargeSum / $allotedRechargeBudget recharge"))
+            }
+            if(travelSum != 0.0){
+                dataEntries.add(PieEntry((travelSum.toFloat() / totalSum.toFloat()), "$travelSum / $allotedTravelBudget travel"))
+            }
+            if(clothingSum != 0.0){
+                dataEntries.add(PieEntry((clothingSum.toFloat() / totalSum.toFloat()), "$clothingSum / $allotedClothingbudget clothing"))
+            }
+            if(leisureSum != 0.0){
+                dataEntries.add(PieEntry((leisureSum.toFloat() / totalSum.toFloat()), "$leisureSum / $allotedLeisureBudget leisure"))
+            }
+            if(otherSum != 0.0){
+                dataEntries.add(PieEntry((otherSum.toFloat() / totalSum.toFloat()), "$otherSum / $allotedOtherBudget others"))
+            }
 
             val colors: ArrayList<Int> = ArrayList()
             colors.add(Color.parseColor("#ff1496"))
