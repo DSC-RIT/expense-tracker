@@ -66,7 +66,7 @@ class Thirdfragment : Fragment() {
                 val selectedCategory = rb!!.text
                 val comment = TransactionComment.text.toString()
 
-                val sdf = SimpleDateFormat("dd/M/yyyy hh:mm:ss")
+                val sdf = SimpleDateFormat("yyyy-MM-dd kk:mm:ss")
                 val dateTimeArray = sdf.format(Date()).toString().split(" ")
 
                 val newTransaction = Transaction(amntSpent, selectedCategory as String, comment, dateTimeArray[0], dateTimeArray[1])
