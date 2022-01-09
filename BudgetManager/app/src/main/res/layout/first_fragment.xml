@@ -52,16 +52,16 @@
 
     <com.github.mikephil.charting.charts.PieChart
         android:id="@+id/pieChart"
-        android:layout_width="wrap_content"
-        android:layout_height="800dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_above="@+id/btn_set_budget"
         android:layout_below="@+id/val_total_spent"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="2dp"
-        android:layout_marginEnd="1dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
         android:layout_marginBottom="30dp"
-        android:layout_toStartOf="@+id/val_total_spent"
-        android:layout_toEndOf="@+id/val_total_budget"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="@id/val_total_budget"
         app:layout_constraintRight_toRightOf="@id/val_total_spent"
@@ -69,26 +69,27 @@
 
     <Button
         android:id="@+id/btn_set_budget"
-        android:layout_width="150dp"
-        android:layout_height="80dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btn_history"
+        android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="100dp"
+        android:layout_marginBottom="20dp"
         android:text="@string/set_your_budget"
         android:textAlignment="center"
-        android:textSize="20sp" />
+        android:textSize="14sp" />
 
     <Button
         android:id="@+id/btn_history"
-        android:layout_width="150dp"
-        android:layout_height="80dp"
-        android:layout_alignParentRight="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="100dp"
+        android:layout_marginBottom="20dp"
         android:padding="5dp"
         android:text="@string/history"
         android:textAlignment="center"
-        android:textSize="20sp" />
+        android:textSize="14sp" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btn_add"

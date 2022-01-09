@@ -15,13 +15,13 @@ import com.example.budgetmanager.databinding.FirstFragmentBinding
 import com.github.mikephil.charting.animation.Easing
 import com.github.mikephil.charting.charts.PieChart
 import com.github.mikephil.charting.components.Legend
+import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.data.PieData
 import com.github.mikephil.charting.data.PieDataSet
 import com.github.mikephil.charting.data.PieEntry
 import com.github.mikephil.charting.formatter.PercentFormatter
-import kotlinx.android.synthetic.*
-import kotlinx.android.synthetic.main.first_fragment.*
-import kotlinx.android.synthetic.main.second_fragment.view.*
+import com.github.mikephil.charting.highlight.Highlight
+import com.github.mikephil.charting.listener.OnChartValueSelectedListener
 
 class
 Firstfragment:Fragment() {
@@ -58,33 +58,53 @@ Firstfragment:Fragment() {
     }
 
     private fun setUpPieChart() {
-        pieChart.setUsePercentValues(true)
-        pieChart.description.text = ""
-        //hollow pie chart
-        pieChart.isDrawHoleEnabled = false
-        pieChart.setTouchEnabled(true)
-        pieChart.setDrawEntryLabels(false)
-        //adding padding
-        pieChart.setExtraOffsets(20f, 0f, 20f, 20f)
-        pieChart.setUsePercentValues(true)
-        pieChart.isRotationEnabled = true
-        pieChart.setDrawEntryLabels(false)
-        pieChart.legend.orientation = Legend.LegendOrientation.HORIZONTAL
-        pieChart.legend.isWordWrapEnabled = true
+
+        pieChart.apply {
+            setUsePercentValues(true)
+            description.text = "Sample Description"
+            description.textSize = 24f
+            //hollow pie chart
+            isDrawHoleEnabled = true
+            setTouchEnabled(true)
+            setDrawEntryLabels(false)
+
+            //make this true if legend is required
+            legend.isEnabled = false
+            //adding padding
+            setExtraOffsets(20f, 0f, 20f, 20f)
+            isRotationEnabled = true
+            isHighlightPerTapEnabled = true
+//            legend.orientation = Legend.LegendOrientation.HORIZONTAL
+//            legend.isWordWrapEnabled = true
+        }
+
+        pieChart.setOnChartValueSelectedListener(object : OnChartValueSelectedListener{
+            override fun onValueSelected(e: Entry?, h: Highlight?) {
+                pieChart.setDrawEntryLabels(true)
+                pieChart.setEntryLabelColor(Color.BLACK)
+            }
+
+            override fun onNothingSelected() {
+                pieChart.setDrawEntryLabels(false)
+            }
+
+        })
+
     }
 
     private fun loadPieChartData(){
         pieChart.setUsePercentValues(true)
 
-        var foodSum = 0.0;
-        var grocerySum = 0.0;
-        var stationarySum = 0.0;
-        var rechargeSum = 0.0;
-        var travelSum = 0.0;
-        var clothingSum = 0.0;
-        var leisureSum = 0.0;
-        var otherSum = 0.0;
-        var totalSum = 0.0;
+        /*Hard Coded sample data for testing*/
+        var foodSum = 500
+        var grocerySum = 100
+        var stationarySum = 220
+        var rechargeSum = 300
+        var travelSum = 200
+        var clothingSum = 150
+        var leisureSum = 300
+        var otherSum = 50
+        var totalSum = 0
 
         databaseViewModel.allTransactions.observe(viewLifecycleOwner) {
             for (transaction in it) {
@@ -104,14 +124,14 @@ Firstfragment:Fragment() {
 
 
             val dataEntries = ArrayList<PieEntry>()
-            dataEntries.add(PieEntry((foodSum / totalSum).toFloat(), "Food"))
-            dataEntries.add(PieEntry((grocerySum / totalSum).toFloat(), "Grocery"))
-            dataEntries.add(PieEntry((stationarySum / totalSum).toFloat(), "Stationary"))
-            dataEntries.add(PieEntry((rechargeSum / totalSum).toFloat(), "Recharge"))
-            dataEntries.add(PieEntry((travelSum / totalSum).toFloat(), "Travelling"))
-            dataEntries.add(PieEntry((clothingSum / totalSum).toFloat(), "Clothing"))
-            dataEntries.add(PieEntry((leisureSum / totalSum).toFloat(), "Leisure"))
-            dataEntries.add(PieEntry((otherSum / totalSum).toFloat(), "Others"))
+            dataEntries.add(PieEntry((foodSum.toFloat() / totalSum.toFloat()), "$foodSum / $totalSum \nfood"))
+            dataEntries.add(PieEntry((grocerySum.toFloat()/ totalSum.toFloat()), "$grocerySum / $totalSum \ngrocery"))
+            dataEntries.add(PieEntry((stationarySum.toFloat() / totalSum.toFloat()), "$stationarySum / $totalSum \nstationary"))
+            dataEntries.add(PieEntry((rechargeSum.toFloat() / totalSum.toFloat()), "$rechargeSum / $totalSum \nrecharge"))
+            dataEntries.add(PieEntry((travelSum.toFloat() / totalSum.toFloat()), "$travelSum / $totalSum \ntravel"))
+            dataEntries.add(PieEntry((clothingSum.toFloat() / totalSum.toFloat()), "$clothingSum / $totalSum \nclothing"))
+            dataEntries.add(PieEntry((leisureSum.toFloat() / totalSum.toFloat()), "$leisureSum / $totalSum \nleisure"))
+            dataEntries.add(PieEntry((otherSum.toFloat() / totalSum.toFloat()), "$otherSum / $totalSum \nothers"))
 
             val colors: ArrayList<Int> = ArrayList()
             colors.add(Color.parseColor("#ff1496"))
@@ -145,8 +165,6 @@ Firstfragment:Fragment() {
             //add text in center
             pieChart.setDrawCenterText(true);
             pieChart.centerText = "Expenditure"
-
-
             pieChart.invalidate()
         }
     }
