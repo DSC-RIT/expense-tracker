@@ -17,8 +17,8 @@ For the above problem, we propose a mobile app-based solution, named aptly as "E
 <img width="250px" margin="30px" style="margin:20px;" src="./BudgetManager/assets/budget.jpg">
 <img width="250px" margin="30px" style="margin:20px;" src="./BudgetManager/assets/empty_pie_chart.jpg">
 <img width="250px" margin="30px" style="margin:20px;" src="./BudgetManager/assets/transaction.jpg">
-<img width="250px" margin="30px" style="margin:20px;" src="./BudgetManager/assets/good_pie_chart.jpg">
-<img width="250px" margin="30px" style="margin:20px;" src="./BudgetManager/assets/bad_pie_chart.jpg">
+<img width="250px" margin="30px" style="margin:20px;" src="./BudgetManager/assets/good_piechart.jpg">
+<img width="250px" margin="30px" style="margin:20px;" src="./BudgetManager/assets/bad_piechart.jpg">
 <img width="250px" margin="30px" style="margin:20px;" src="./BudgetManager/assets/history.jpg">
 </div>
 
@@ -27,7 +27,7 @@ For the above problem, we propose a mobile app-based solution, named aptly as "E
 
 The App has a very simple and interactive UI which makes it easier to understand the flow of the app. Following are few android concepts used to achieve the functionalities in the app:
 
-- `Diffrent screen layouts`: The app employs a variety of layouts, each of which provides its own unique functionality (Example: Linear Layout, Relative Layout, Constraint Layout).
+- `Different screen layouts`: The app employs a variety of layouts, each of which provides its own unique functionality (Example: Linear Layout, Relative Layout, Constraint Layout).
 - `Android Jetpack Navigation`: We also use Android Jetpack Navigation which simplifies the implementation of navigation while also assisting us in visualising the navigation flow of our application.
 - `Recyclerview`: We made use of recycler view to display all the past transactions made.
 - `LiveData & Room Database`: We are using LiveData to update & observe any changes in the budget and transactions made by the user, so as to update it to local databases using Room.
