@@ -108,15 +108,24 @@ class Firstfragment:Fragment() {
                         "Others" -> otherSum += transaction.amount.toInt()
                     }
                 }
-                totalSum =
-                    foodSum + grocerySum + stationarySum + rechargeSum + travelSum + clothingSum + leisureSum + otherSum;
+                totalSum = foodSum + grocerySum + stationarySum + rechargeSum + travelSum + clothingSum + leisureSum + otherSum;
 
                 if (budgets.isNotEmpty()) {
                     val budget = budgets[budgets.size - 1]
 
                     binding.valMonthlyBudget.text = budget.budget
                     binding.valTotalSpent.text = totalSum.toString()
+
+                    if (totalSum <= budget.budget.toInt()) {
+                        binding.status.text = "You are doing great this month!"
+                        binding.status.setTextColor(Color.GREEN)
+                    }
+                    else {
+                        binding.status.text = "Oh no, you crossed your monthly budget!"
+                        binding.status.setTextColor(Color.RED)
+                    }
                 }
+
                 setUpPieChart()
                 loadPieChartData()
             }
