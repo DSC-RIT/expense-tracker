@@ -230,7 +230,7 @@ class Firstfragment:Fragment() {
     }
 
     private fun method1() {
-        val act = FirstfragmentDirections.actionFirstfragmentToSecondfragment()
+        val act = FirstfragmentDirections.actionFirstfragmentToSecondfragment("pieChartFragment")
         this.findNavController().navigate(act)
     }
 

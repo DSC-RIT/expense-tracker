@@ -13,8 +13,7 @@ import com.example.budgetmanager.database.DatabaseViewModel
 import com.example.budgetmanager.database.budget.Budget
 import com.example.budgetmanager.databinding.SecondFragmentBinding
 
-class Secondfragment:Fragment() {
-
+class Secondfragment: Fragment() {
     private val databaseViewModel: DatabaseViewModel by viewModels()
     private lateinit var binding: SecondFragmentBinding
 
@@ -30,6 +29,23 @@ class Secondfragment:Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        val prevFragmentName = arguments?.get("id") ?: "none"
+
+        if (prevFragmentName == "none") {
+            databaseViewModel.budget.observe(viewLifecycleOwner) { budgets ->
+                if (budgets.isEmpty()) {
+                    validate()
+                } else {
+                    navigate()
+                }
+            }
+        }
+        else {
+            validate()
+        }
+    }
+
+    private fun validate() {
         val btn = binding.doneLimitButton
 
         btn.setOnClickListener {
@@ -37,15 +53,21 @@ class Secondfragment:Fragment() {
             val budget: Int
 
             if (setBudget.isEmpty()) {
-                Toast.makeText(activity, "Please enter your monthly budget first!", Toast.LENGTH_SHORT).show()
-            }
-            else {
+                Toast.makeText(
+                    activity,
+                    "Please enter your monthly budget first!",
+                    Toast.LENGTH_SHORT
+                ).show()
+            } else {
                 budget = setBudget.toIntOrNull() ?: 0
 
                 if (budget <= 0)
-                    Toast.makeText(activity, "Please enter a valid amount!", Toast.LENGTH_SHORT)
+                    Toast.makeText(
+                        activity,
+                        "Please enter a valid amount!",
+                        Toast.LENGTH_SHORT
+                    )
                         .show()
-
                 else {
                     val categories = ArrayList<String>()
                     categories.add(binding.limitFood.text.toString())
@@ -64,7 +86,6 @@ class Secondfragment:Fragment() {
 
                         if (value == null) {
                             if (category.isEmpty()) categories[index] = "0"
-
                             else {
                                 Toast.makeText(
                                     activity,
@@ -74,8 +95,7 @@ class Secondfragment:Fragment() {
                                 flag = true
                                 break
                             }
-                        }
-                        else {
+                        } else {
                             if (value < 0) {
                                 Toast.makeText(
                                     activity,

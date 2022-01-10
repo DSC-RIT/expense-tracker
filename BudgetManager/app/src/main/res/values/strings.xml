@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Budget Manager</string>
+    <string name="app_name">Expense Tracker</string>
     <string name="monthly_budget">Monthly Budget</string>
     <string name="total_spent">Total Spent</string>
     <string name="set_your_budget">Set Your Budget</string>

@@ -77,10 +77,10 @@
                 android:textSize="18sp"/>
 
             <RadioButton
-                android:id="@+id/rd_item"
+                android:id="@+id/rd_recharge"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Item"
+                android:text="Recharge"
                 android:textSize="18sp"/>
 
             <RadioButton
