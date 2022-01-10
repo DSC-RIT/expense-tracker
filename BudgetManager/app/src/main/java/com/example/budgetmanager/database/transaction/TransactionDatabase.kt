@@ -18,7 +18,7 @@ abstract class TransactionDatabase: RoomDatabase() {
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
                     TransactionDatabase::class.java,
-                    "expense_tracker_database"
+                    "transaction_database"
                 )
                     .fallbackToDestructiveMigration()
                     .build()

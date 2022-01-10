@@ -6,7 +6,7 @@ import androidx.room.*
 @Dao
 interface BudgetDao {
     @Query("SELECT * FROM budgetsTable")
-    fun getBudget(): LiveData<Budget>
+    fun getAllBudgets(): LiveData<List<Budget>>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun addBudget(budget: Budget)

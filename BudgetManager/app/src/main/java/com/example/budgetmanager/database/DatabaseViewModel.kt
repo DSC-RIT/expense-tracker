@@ -13,7 +13,7 @@ import kotlinx.coroutines.launch
 class DatabaseViewModel: ViewModel() {
     private lateinit var repository: DataBaseRepository
     lateinit var allTransactions: LiveData<List<Transaction>>
-    lateinit var budget: LiveData<Budget>
+    lateinit var budget: LiveData<List<Budget>>
 
     fun initial(context: Context) {
         val transactionDao = TransactionDatabase.getDatabase(context).transactionDao()

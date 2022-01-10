@@ -5,7 +5,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = [Budget::class], version = 2, exportSchema = false)
+@Database(entities = [Budget::class], version = 1, exportSchema = false)
 abstract class BudgetDatabase: RoomDatabase() {
 
     abstract fun budgetDao(): BudgetDao
@@ -18,7 +18,7 @@ abstract class BudgetDatabase: RoomDatabase() {
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
                     BudgetDatabase::class.java,
-                    "expense_tracker_database"
+                    "budget_database"
                 )
                     .fallbackToDestructiveMigration()
                     .build()

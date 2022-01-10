@@ -12,7 +12,7 @@ class DataBaseRepository(private val transactionDao: TransactionDao, private val
     // implement anything else to ensure we're not doing long running database work
     // off the main thread.
     val allTransactions = transactionDao.getAllTransactions()
-    val budget = budgetDao.getBudget()
+    val budget = budgetDao.getAllBudgets()
 
     suspend fun insert(transaction: Transaction) {
         transactionDao.insertTransaction(transaction)

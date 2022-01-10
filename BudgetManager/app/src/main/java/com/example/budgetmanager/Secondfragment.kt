@@ -16,7 +16,7 @@ import com.example.budgetmanager.databinding.SecondFragmentBinding
 class Secondfragment:Fragment() {
 
     private val databaseViewModel: DatabaseViewModel by viewModels()
-    private lateinit var binding:SecondFragmentBinding
+    private lateinit var binding: SecondFragmentBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -49,13 +49,13 @@ class Secondfragment:Fragment() {
                 else {
                     val categories = ArrayList<String>()
                     categories.add(binding.limitFood.text.toString())
-                    categories.add(binding.limitClothing.text.toString())
                     categories.add(binding.limitGrocery.text.toString())
+                    categories.add(binding.limitStationary.text.toString())
+                    categories.add(binding.limitRecharge.text.toString())
+                    categories.add(binding.limitTravelling.text.toString())
+                    categories.add(binding.limitClothing.text.toString())
                     categories.add(binding.limitLeisure.text.toString())
                     categories.add(binding.limitOthers.text.toString())
-                    categories.add(binding.limitStationary.text.toString())
-                    categories.add(binding.limitTravelling.text.toString())
-                    categories.add(binding.limitRecharge.text.toString())
 
                     var sum = 0
                     var flag = false
