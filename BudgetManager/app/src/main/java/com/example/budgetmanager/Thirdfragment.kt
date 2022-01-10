@@ -43,43 +43,54 @@ class Thirdfragment : Fragment() {
         val btn = binding.doneAdd
         var rb : RadioButton? = null
 
-        rd_group.setOnCheckedChangeListener { rd_group, i ->
-            rb = getView()?.findViewById<RadioButton>(i)
+        binding.rdGroup.setOnCheckedChangeListener {_, i ->
+            rb = getView()?.findViewById(i)
         }
+
         btn.setOnClickListener{
 //            The below code is an example for how to insert into the database:
 //
 //            val entry = Transaction("123", "Food", "Test", "08/01/22", "20:55:30")
 //            databaseViewModel.addTransaction(entry)
 
-            val amntSpent = text_amount_spent_edit_text.text.toString()
+            val amountSpent = binding.textAmountSpentEditText.text.toString()
 
-            if (amntSpent.isEmpty()){
-                Toast.makeText(activity, "Please Enter the Amount", Toast.LENGTH_SHORT).show()
+            if (amountSpent.isEmpty()){
+                Toast.makeText(activity, "Please enter the amount!", Toast.LENGTH_SHORT).show()
             }
+            else {
+                val amount = amountSpent.toIntOrNull()
 
-            if (rb == null){
-                Toast.makeText(activity, "Please Select the Catagory", Toast.LENGTH_SHORT).show()
+                if (amount == null || amount <= 0) {
+                    Toast.makeText(activity, "Please enter a valid amount!", Toast.LENGTH_SHORT).show()
+                }
+                else {
+                    if (rb == null) {
+                        Toast.makeText(activity, "Please Select the category!", Toast.LENGTH_SHORT).show()
+                    } else {
+                        val selectedCategory = rb!!.text.toString()
+                        val comment = TransactionComment.text.toString()
+
+                        val sdf = SimpleDateFormat("yyyy-MM-dd kk:mm:ss")
+                        val dateTimeArray = sdf.format(Date()).toString().split(" ")
+
+                        val newTransaction = Transaction(
+                            amount.toString(),
+                            selectedCategory,
+                            comment,
+                            dateTimeArray[0],
+                            dateTimeArray[1]
+                        )
+                        databaseViewModel.addTransaction(newTransaction)
+
+                        navigate()
+                    }
+                }
             }
-
-            else{
-                val selectedCategory = rb!!.text
-                val comment = TransactionComment.text.toString()
-
-                val sdf = SimpleDateFormat("yyyy-MM-dd kk:mm:ss")
-                val dateTimeArray = sdf.format(Date()).toString().split(" ")
-
-                val newTransaction = Transaction(amntSpent, selectedCategory as String, comment, dateTimeArray[0], dateTimeArray[1])
-                databaseViewModel.addTransaction(newTransaction)
-
-                method()
-            }
-
         }
     }
 
-    private fun method()
-    {
+    private fun navigate() {
         val act = ThirdfragmentDirections.actionThirdfragmentToFirstfragment()
         this.findNavController().navigate(act)
     }

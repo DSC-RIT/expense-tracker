@@ -4,21 +4,18 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
-import androidx.databinding.DataBindingUtil.*
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.budgetmanager.database.DatabaseViewModel
 import com.example.budgetmanager.database.budget.Budget
 import com.example.budgetmanager.databinding.SecondFragmentBinding
-import kotlinx.android.synthetic.main.second_fragment.*
 
 class Secondfragment:Fragment() {
 
-    private val databaseViewModel2 : DatabaseViewModel by viewModels()
+    private val databaseViewModel: DatabaseViewModel by viewModels()
     private lateinit var binding:SecondFragmentBinding
 
     override fun onCreateView(
@@ -26,80 +23,104 @@ class Secondfragment:Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        databaseViewModel.initial(requireNotNull(this.activity).application)
+        binding = DataBindingUtil.inflate(inflater, R.layout.second_fragment, container,false)
 
-        databaseViewModel2.initial(requireNotNull(this.activity).application)
-
-        binding=DataBindingUtil.inflate(inflater,R.layout.second_fragment,container,false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val btn=done_limit_button
+        val btn = binding.doneLimitButton
 
-        btn.setOnClickListener{
+        btn.setOnClickListener {
+            val setBudget = binding.limitTotalBudgetEditText.text.toString()
+            val budget: Int
 
-            val setBudget = limit_total_budget_edit_text.text.toString()
+            if (setBudget.isEmpty()) {
+                Toast.makeText(activity, "Please enter your monthly budget first!", Toast.LENGTH_SHORT).show()
+            }
+            else {
+                budget = setBudget.toIntOrNull() ?: 0
 
-            val food = limit_food.text.toString()
-            val clothes = limit_clothing.text.toString()
-            val grocery = limit_grocery.text.toString()
-            val leisure = limit_leisure.text.toString()
-            val others = limit_others.text.toString()
-            val stationary = limit_stationary.text.toString()
-            val travelling = limit_travelling.text.toString()
-            val recharge = limit_recharge.text.toString()
-
-            val category = ArrayList<String>()
-            category.add(food)
-            category.add(clothes)
-            category.add(grocery)
-            category.add(leisure)
-            category.add(others)
-            category.add(stationary)
-            category.add(travelling)
-            category.add(recharge)
-
-            var sum = 0
-
-            for (budget in category){
-                val value : Int? = budget.toIntOrNull()
-
-                if (value == null){
-                    sum += 0
-                    continue
-                }
-
-                if (value < 0){
-                    Toast.makeText(activity, "Enter Valid Limit Input", Toast.LENGTH_SHORT).show()
-                }
+                if (budget <= 0)
+                    Toast.makeText(activity, "Please enter a valid amount!", Toast.LENGTH_SHORT)
+                        .show()
 
                 else {
-                    sum += value
+                    val categories = ArrayList<String>()
+                    categories.add(binding.limitFood.text.toString())
+                    categories.add(binding.limitClothing.text.toString())
+                    categories.add(binding.limitGrocery.text.toString())
+                    categories.add(binding.limitLeisure.text.toString())
+                    categories.add(binding.limitOthers.text.toString())
+                    categories.add(binding.limitStationary.text.toString())
+                    categories.add(binding.limitTravelling.text.toString())
+                    categories.add(binding.limitRecharge.text.toString())
+
+                    var sum = 0
+                    var flag = false
+                    for ((index, category) in categories.withIndex()) {
+                        val value: Int? = category.toIntOrNull()
+
+                        if (value == null) {
+                            if (category.isEmpty()) categories[index] = "0"
+
+                            else {
+                                Toast.makeText(
+                                    activity,
+                                    "Please enter a valid amount!",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                                flag = true
+                                break
+                            }
+                        }
+                        else {
+                            if (value < 0) {
+                                Toast.makeText(
+                                    activity,
+                                    "Please enter a valid amount!",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                                flag = true
+                                break
+                            } else {
+                                sum += value
+                            }
+                        }
+                    }
+
+                    if (!flag) {
+                        if (sum != budget) {
+                            Toast.makeText(
+                                activity,
+                                "Entered amounts doesn't sum up to the entered budget!",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        } else {
+                            val limits = Budget(
+                                budget.toString(),
+                                categories[0],
+                                categories[1],
+                                categories[2],
+                                categories[3],
+                                categories[4],
+                                categories[5],
+                                categories[6],
+                                categories[7],
+                            )
+                            databaseViewModel.addBudget(limits)
+
+                            navigate()
+                        }
+                    }
                 }
-            }
-
-            val budgetValue = setBudget.toInt()
-
-            if (setBudget.isEmpty()){
-                Toast.makeText(activity, "Please Select your monthly Budget First", Toast.LENGTH_SHORT).show()
-            }
-
-            if (sum != budgetValue){
-                Toast.makeText(activity, "Entered Limits are not according to the Budget set", Toast.LENGTH_SHORT).show()
-            }
-
-            else{
-                val limits =  Budget (setBudget, food, grocery, stationary, recharge, travelling, clothes, leisure, others)
-                databaseViewModel2.addBudget(limits)
-
-                method()
             }
         }
     }
 
-    private fun method()
-    {
-        val act=SecondfragmentDirections.actionSecondfragmentToFirstfragment()
+    private fun navigate() {
+        val act = SecondfragmentDirections.actionSecondfragmentToFirstfragment()
         this.findNavController().navigate(act)
     }
 }
