@@ -11,20 +11,20 @@
     android:layout_marginTop="10dp">
 
     <TextView
-        android:id="@+id/text_monthly_balance"
+        android:id="@+id/text_monthly_budget"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:text="@string/your_monthly_balance"
+        android:text="@string/your_monthly_budget"
         android:textAlignment="center"
         android:textSize="18sp" />
 
     <TextView
-        android:id="@+id/val_total_budget"
+        android:id="@+id/val_monthly_budget"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/text_monthly_balance"
+        android:layout_below="@id/text_monthly_budget"
         android:layout_alignParentLeft="true"
         android:text="@string/value_total_budget"
         android:textAlignment="center"
@@ -63,7 +63,7 @@
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="@id/val_total_budget"
+        app:layout_constraintLeft_toLeftOf="@id/val_monthly_budget"
         app:layout_constraintRight_toRightOf="@id/val_total_spent"
         app:layout_constraintTop_toTopOf="parent" />
 

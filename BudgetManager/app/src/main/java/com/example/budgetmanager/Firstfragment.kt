@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.budgetmanager.database.DatabaseViewModel
+import com.example.budgetmanager.database.budget.Budget
 import com.example.budgetmanager.databinding.FirstFragmentBinding
 import com.github.mikephil.charting.animation.Easing
 import com.github.mikephil.charting.charts.PieChart
@@ -83,6 +84,7 @@ class Firstfragment:Fragment() {
         databaseViewModel.budget.observe(viewLifecycleOwner) { budgets ->
             if (budgets.isNotEmpty()) {
                 val budget = budgets[budgets.size - 1]
+
                 allottedFoodBudget = budget.foodBudget.toInt()
                 allottedGroceryBudget = budget.groceryBudget.toInt()
                 allottedStationaryBudget = budget.stationaryBudget.toInt()
@@ -109,6 +111,12 @@ class Firstfragment:Fragment() {
                 totalSum =
                     foodSum + grocerySum + stationarySum + rechargeSum + travelSum + clothingSum + leisureSum + otherSum;
 
+                if (budgets.isNotEmpty()) {
+                    val budget = budgets[budgets.size - 1]
+
+                    binding.valMonthlyBudget.text = budget.budget
+                    binding.valTotalSpent.text = totalSum.toString()
+                }
                 setUpPieChart()
                 loadPieChartData()
             }

@@ -14,10 +14,10 @@
     <string name="others">Others</string>
     <string name="set_limits_for_following">Set limits for following</string>
 
-    <string name="your_monthly_balance">Your Monthly Balance</string>
+    <string name="your_monthly_budget">Your Monthly Budget</string>
 
-    <string name="value_total_budget">value total</string>
-    <string name="value_total_spent">value spent</string>
+    <string name="value_total_budget">0</string>
+    <string name="value_total_spent">0</string>
 
     <string name="amount_spent">Amount Spent</string>
     <string name="category">Select Category</string>
