@@ -35,6 +35,6 @@ The App has a very simple and interactive UI which makes it easier to understand
 
 ## **Application Link & Future Scope**
 
-The application is currently in the testing phase at RIT with a limited number of users. You can access the pre-release of our app from the [releases]  section.
+The application is currently in the testing phase at RIT with a limited number of users. You can access the pre-release of our app from the [releases](https://github.com/DSC-RIT/expense-tracker/releases/tag/v1.0)  section.
 
 In the future, we plan to add more features such as automatically reading SMS messages to keep track of all online transactions, more options to better visualize expenditures and many more. This would make the app a full-fledged expense tracker which will surely come in handy to our college mates and others as well.
