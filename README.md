@@ -15,8 +15,10 @@ For the above problem, we propose a mobile app-based solution, named aptly as "E
 
 <div align="center" style="margin:auto;width:100%;display:flex;justify-content:center;align-items:center;flex-wrap:wrap;">
 <img width="250px" margin="30px" style="margin:20px;" src="./BudgetManager/assets/budget.jpg">
+<img width="250px" margin="30px" style="margin:20px;" src="./BudgetManager/assets/empty_pie_chart.jpg">
 <img width="250px" margin="30px" style="margin:20px;" src="./BudgetManager/assets/transaction.jpg">
-<img width="250px" margin="30px" style="margin:20px;" src="./BudgetManager/assets/pie_chart.jpg">
+<img width="250px" margin="30px" style="margin:20px;" src="./BudgetManager/assets/good_pie_chart.jpg">
+<img width="250px" margin="30px" style="margin:20px;" src="./BudgetManager/assets/bad_pie_chart.jpg">
 <img width="250px" margin="30px" style="margin:20px;" src="./BudgetManager/assets/history.jpg">
 </div>
 
