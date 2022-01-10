@@ -16,7 +16,6 @@ class HistoryAdapter(private val pastTransactions: List<Transaction>): RecyclerV
 
     override fun onBindViewHolder(holder: HistoryViewHolder, position: Int) {
         val pastTransaction = pastTransactions[position]
-
         holder.categoryName.text = pastTransaction.category
         holder.amount.text = pastTransaction.amount
         holder.date.text = pastTransaction.date
