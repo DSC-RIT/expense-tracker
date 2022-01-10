@@ -10,16 +10,14 @@
 
     <TextView
         android:id="@+id/set_title"
-        android:layout_width="242dp"
-        android:layout_height="50dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="false"
-        android:layout_alignParentEnd="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
         android:layout_marginTop="10dp"
         android:gravity="center"
         android:text="@string/set_your_budget"
         android:textAlignment="center"
-        android:textSize="30sp"
+        android:textSize="35sp"
         android:textStyle="bold" />
 
 
@@ -30,11 +28,9 @@
         android:hint="Enter Your Budget"
         android:inputType="numberSigned"
         android:layout_below="@id/set_title"
-        android:layout_alignParentStart="false"
         android:layout_alignParentTop="false"
-        android:layout_alignParentEnd="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="15dp"
         >
 
         <com.google.android.material.textfield.TextInputEditText
@@ -54,7 +50,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="false"
         android:layout_alignParentBottom="false"
-        android:layout_marginLeft="30dp"
+        android:layout_marginLeft="25dp"
         android:layout_marginTop="30dp"
         android:orientation="vertical">
 
@@ -142,14 +138,15 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/limits_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/limit_total_budget"
         android:layout_alignParentTop="false"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="false"
-        android:layout_marginTop="30dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginTop="33dp"
+        android:layout_marginRight="25dp"
         android:orientation="vertical">
 
         <EditText
@@ -218,6 +215,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
+        android:padding="11dp"
+        android:textSize="18sp"
         android:layout_marginRight="20dp"
         android:text="Done" />
 

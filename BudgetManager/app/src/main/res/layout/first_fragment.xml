@@ -94,7 +94,8 @@
             android:layout_marginStart="10dp"
             android:text="@string/set_your_budget"
             android:textAlignment="center"
-            android:textSize="14sp" />
+            android:textSize="16sp"
+            />
 
         <Button
             android:id="@+id/btn_history"
@@ -104,10 +105,10 @@
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="20dp"
             android:layout_marginStart="10dp"
-            android:padding="5dp"
+            android:padding="8dp"
             android:text="@string/history"
             android:textAlignment="center"
-            android:textSize="14sp" />
+            android:textSize="16sp" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/btn_add"

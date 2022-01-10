@@ -8,7 +8,6 @@
     tools:context=".MainActivity"
     android:layout_marginLeft="30dp"
     android:layout_marginRight="30dp"
-    android:layout_marginBottom="30dp"
     >
 
     <com.google.android.material.textfield.TextInputLayout
@@ -18,8 +17,9 @@
         android:hint="@string/enter_amount_spent"
         android:inputType="numberSigned"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="15dp">
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/text_amount_spent_edit_text"
             android:layout_width="match_parent"
@@ -33,7 +33,7 @@
         android:id="@+id/text_select_category"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:text="@string/category"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -117,7 +117,7 @@
     <EditText
         android:id="@+id/TransactionComment"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="wrap_content"
         android:ems="15"
         android:inputType="textPersonName"
         android:hint="Comment"
@@ -133,11 +133,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Done"
+        android:textSize="18sp"
+        android:padding="6dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.894"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginBottom="20dp"/>
+        android:layout_marginBottom="15dp"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
